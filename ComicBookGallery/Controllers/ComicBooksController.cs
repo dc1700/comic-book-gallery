@@ -6,14 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace ComicBookGallery
+namespace ComicBookGallery.Controllers
 {
     public class ComicBooksController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        public string Detail() 
         {
-            return View();
+            return "Hello from the Comic Book controller!";
         }
     }
 }
