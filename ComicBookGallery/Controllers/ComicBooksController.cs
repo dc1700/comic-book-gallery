@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ComicBookGallery.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,18 +13,19 @@ namespace ComicBookGallery.Controllers
     {
         public ActionResult Detail()
         {
+            var comicBook = new ComicBook()
+            {
+                SeriesTitle = "The Amazing Spider-Man",
+                IssueNumber = 700,
+                DescriptionHtml = "<p>Hello from the desc!!!</p>",
+                Artists = new Artist[]
+                {
+                    new Artist() {Name = "Dan Slott", Role = "Script"},
+                    new Artist() {Name = "Edgar Delgato", Role = "Colors"}
+                }
+            };
 
-            ViewBag.SeriesTitle = "The Amazing Spider-Man";
-            ViewBag.IssueNumber = 700;
-            ViewBag.Description = "<p>Hello from the description.</p>";
-            ViewBag.Artists = new string[]
-                          {
-                              "Script : Dan Slott",
-                              "Colors : Edgar Delgato"
-                          };
-
-
-            return View();
+            return View(comicBook);
         }
     }
 }
